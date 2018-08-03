@@ -16,4 +16,8 @@
     <string name="second_step_warning_msg">Если вы не введете номер свидетельства ТС, то вы не сможете следить за штрафами, выписанными на автомобиль.</string>
     <string name="third_step_warning_msg">Если вы не введете номер водительского удостоверения, то вы не сможете следить за штрафами, выписанными на водителя.</string>
     <string name="negative_button_warning_dialog_login_text">Ввести номер</string>
+    <string name="title_activity_on_board">OnBoardActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="into_finish_button_text">Узнать штрафы</string>
 </resources>
