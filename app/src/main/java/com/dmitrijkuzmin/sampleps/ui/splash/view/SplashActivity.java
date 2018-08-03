@@ -1,5 +1,6 @@
 package com.dmitrijkuzmin.sampleps.ui.splash.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import com.dmitrijkuzmin.sampleps.App;
 import com.dmitrijkuzmin.sampleps.R;
 import com.dmitrijkuzmin.sampleps.di.splash.SplashModule;
+import com.dmitrijkuzmin.sampleps.ui.login.view.LoginActivity;
+import com.dmitrijkuzmin.sampleps.ui.main.view.MainActivity;
 import com.dmitrijkuzmin.sampleps.ui.splash.presenter.SplashPresenter;
 
 import javax.inject.Inject;
@@ -53,11 +56,15 @@ public class SplashActivity extends AppCompatActivity implements SplashView,
 
     @Override
     public void moveToLoginScreen() {
-
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
     public void moveToMainScreen() {
-
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

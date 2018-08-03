@@ -15,11 +15,6 @@ public class SharedPreferenceManagerImpl implements SharedPreferenceManager {
         this.sharedPreferences = sharedPreferences;
     }
 
-//    @Override
-//    public String getRegistrationNumber() {
-//        return sharedPreferences.getString(REGISTRATION_NUMBER, EMPTY_PREFERENCE);
-//    }
-
     @Override
     public Observable<String> getRegistrationNumber() {
         return Observable.fromCallable(() -> sharedPreferences.getString(REGISTRATION_NUMBER, EMPTY_PREFERENCE))
@@ -37,16 +32,6 @@ public class SharedPreferenceManagerImpl implements SharedPreferenceManager {
         return Observable.fromCallable(() -> sharedPreferences.getString(DRIVER_LICENSE, EMPTY_PREFERENCE))
                 .subscribeOn(Schedulers.io());
     }
-
-    //    @Override
-//    public String getCertificateNumber() {
-//        return sharedPreferences.getString(CERTIFICATE_NUMBER, EMPTY_PREFERENCE);
-//    }
-//
-//    @Override
-//    public String getDriverLicense() {
-//        return sharedPreferences.getString(DRIVER_LICENSE, EMPTY_PREFERENCE);
-//    }
 
     @Override
     public void setRegistrationNumber(String registrationNumber) {
@@ -66,6 +51,27 @@ public class SharedPreferenceManagerImpl implements SharedPreferenceManager {
     public void setDriverLicense(String driverLicense) {
         sharedPreferences.edit()
                 .putString(DRIVER_LICENSE, driverLicense)
+                .apply();
+    }
+
+    @Override
+    public void clearRegistrationNumber() {
+        sharedPreferences.edit()
+                .remove(REGISTRATION_NUMBER)
+                .apply();
+    }
+
+    @Override
+    public void clearCertificateNumber() {
+        sharedPreferences.edit()
+                .remove(CERTIFICATE_NUMBER)
+                .apply();
+    }
+
+    @Override
+    public void clearDriverLicense() {
+        sharedPreferences.edit()
+                .remove(DRIVER_LICENSE)
                 .apply();
     }
 }

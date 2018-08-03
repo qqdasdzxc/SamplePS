@@ -26,13 +26,13 @@
         android:adjustViewBounds="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_above="@id/btnNext"
+        android:layout_above="@id/next_btn"
         android:layout_below="@id/tvPreLogin"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/btnNext"
+        android:id="@+id/next_btn"
         android:layout_alignParentBottom="true"
         android:textSize="20sp"
         android:background="@drawable/btn_flat_shape"

@@ -15,4 +15,8 @@ public interface SharedPreferenceManager {
     void setRegistrationNumber(String registrationNumber);
     void setCertificateNumber(String certificateNumber);
     void setDriverLicense(String driverLicense);
+
+    void clearRegistrationNumber();
+    void clearCertificateNumber();
+    void clearDriverLicense();
 }

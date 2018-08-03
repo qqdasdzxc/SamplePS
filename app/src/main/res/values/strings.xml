@@ -5,4 +5,15 @@
     <string name="btn_pre_login_text">Ввести данные</string>
     <string name="btn_pre_main_text">Продолжить</string>
     <string name="pre_main_screen_text">Скидка 50%</string>
+    <string name="first_step_login_message">Укажите регистрационный номер ТС</string>
+    <string name="registration_number_hint">А111АА77</string>
+    <string name="next_button_text">Далее</string>
+    <string name="skip_btn_text">Пропустить</string>
+    <string name="second_step_login_message">Введите норме свидетельства о регистрации ТС</string>
+    <string name="certificate_number_hint">50АА101101</string>
+    <string name="third_step_login_message">Введите номер водительского удостоверения</string>
+    <string name="first_step_warning_msg">Если вы не введете регистрационный номер ТС, то вы не сможете следить за штрафами, выписанными на автомобиль.</string>
+    <string name="second_step_warning_msg">Если вы не введете номер свидетельства ТС, то вы не сможете следить за штрафами, выписанными на автомобиль.</string>
+    <string name="third_step_warning_msg">Если вы не введете номер водительского удостоверения, то вы не сможете следить за штрафами, выписанными на водителя.</string>
+    <string name="negative_button_warning_dialog_login_text">Ввести номер</string>
 </resources>

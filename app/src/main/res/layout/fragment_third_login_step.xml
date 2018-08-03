@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <FrameLayout
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/driver_lic"
+            android:scaleType="fitCenter" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/third_step_login_message"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
+        android:textSize="24sp"/>
+
+    <EditText
+        android:textSize="34sp"
+        android:id="@+id/driver_license_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:maxLength="10"
+        android:hint="@string/certificate_number_hint"
+        android:inputType="textCapCharacters"
+        android:imeOptions="actionGo|actionSearch|actionDone|actionPrevious" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp">
+
+        <Button
+            android:id="@+id/next_btn"
+            android:background="@drawable/custom_next_button"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/next_button_text"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/skip_btn"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:text="@string/skip_btn_text"
+            android:layout_toLeftOf="@+id/next_btn"
+            android:layout_toStartOf="@+id/next_btn"
+            android:background="@color/default_background"
+            android:textColor="@color/light_blue"
+            style="?android:attr/borderlessButtonStyle"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

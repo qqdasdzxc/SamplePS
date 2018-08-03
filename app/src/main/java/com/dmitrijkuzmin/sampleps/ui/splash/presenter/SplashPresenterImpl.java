@@ -9,7 +9,7 @@ public class SplashPresenterImpl implements SplashPresenter {
 
     private SplashView view;
     private SplashInteractor interactor;
-    Disposable disposable;
+    private Disposable disposable;
 
     public SplashPresenterImpl(SplashView view, SplashInteractor interactor) {
         this.view = view;

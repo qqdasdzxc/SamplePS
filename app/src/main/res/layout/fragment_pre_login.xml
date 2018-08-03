@@ -12,6 +12,8 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:lineSpacingExtra="5dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:text="@string/pre_login_screen_text"
         android:textColor="@android:color/white"
         android:textSize="24sp" />
@@ -26,13 +28,13 @@
         android:adjustViewBounds="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_above="@id/btnNext"
+        android:layout_above="@id/next_btn"
         android:layout_below="@id/tvPreLogin"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/btnNext"
+        android:id="@+id/next_btn"
         android:layout_alignParentBottom="true"
         android:textSize="20sp"
         android:background="@drawable/btn_flat_shape"

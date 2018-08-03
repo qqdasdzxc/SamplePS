@@ -1,9 +1,5 @@
 package com.dmitrijkuzmin.sampleps.di.splash;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
 import com.dmitrijkuzmin.sampleps.business.splash.SplashInteractor;
 import com.dmitrijkuzmin.sampleps.business.splash.SplashInteractorImpl;
 import com.dmitrijkuzmin.sampleps.data.SharedPreferenceManager;

@@ -11,7 +11,6 @@ import io.reactivex.schedulers.Schedulers;
 public class SplashInteractorImpl implements SplashInteractor {
 
     private final SharedPreferenceManager manager;
-    private Disposable disposable;
 
     public SplashInteractorImpl(SharedPreferenceManager manager) {
         this.manager = manager;
@@ -23,8 +22,7 @@ public class SplashInteractorImpl implements SplashInteractor {
                 manager.getCertificateNumber(), manager.getDriverLicense(),
                 this::verifyPreferences)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map(Boolean::booleanValue);
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
     private boolean verifyPreferences(String registrationNumber, String certificateNumber, String driverLicense) {

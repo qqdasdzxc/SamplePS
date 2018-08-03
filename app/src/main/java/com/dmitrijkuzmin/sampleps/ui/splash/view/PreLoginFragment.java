@@ -19,7 +19,6 @@ public class PreLoginFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
         listener = (PreLoginListener) context;
     }
 
@@ -28,10 +27,16 @@ public class PreLoginFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_pre_login, container, false);
 
-        Button btnNext = view.findViewById(R.id.btnNext);
+        Button btnNext = view.findViewById(R.id.next_btn);
         btnNext.setOnClickListener(view1 -> listener.moveToLoginScreen());
 
         return view;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
     }
 
     public interface PreLoginListener {
