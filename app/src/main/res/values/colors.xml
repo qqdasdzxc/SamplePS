@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="next_btn_normal">#ff9800</color>
+    <color name="next_btn_hover">#fb8c00</color>
+    <color name="next_btn_pressed">#f57c00</color>
+    <color name="next_btn_disabled">#1c000000</color>
 </resources>

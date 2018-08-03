@@ -16,6 +16,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -29,7 +33,11 @@ dependencies {
     //dagger 2
     def dagger_version = '2.16'
     implementation "com.google.dagger:dagger:$dagger_version"
-//    implementation "com.google.dagger:dagger-android-support:$dagger_version"
-//    annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //rxjava2
+    def rxjava_version = '2.1.9'
+    def rxandroid_version = '2.0.2'
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
 }

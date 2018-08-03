@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SamplePS</string>
+    <string name="loading">Загрузка</string>
+    <string name="pre_login_screen_text">Проверьте штрафы в официальных источниках</string>
+    <string name="btn_pre_login_text">Ввести данные</string>
+    <string name="btn_pre_main_text">Продолжить</string>
+    <string name="pre_main_screen_text">Скидка 50%</string>
 </resources>
