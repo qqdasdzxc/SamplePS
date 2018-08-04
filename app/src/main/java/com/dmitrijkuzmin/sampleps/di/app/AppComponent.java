@@ -2,6 +2,8 @@ package com.dmitrijkuzmin.sampleps.di.app;
 
 import com.dmitrijkuzmin.sampleps.di.login.LoginComponent;
 import com.dmitrijkuzmin.sampleps.di.login.LoginModule;
+import com.dmitrijkuzmin.sampleps.di.main.MainComponent;
+import com.dmitrijkuzmin.sampleps.di.main.MainModule;
 import com.dmitrijkuzmin.sampleps.di.splash.SplashComponent;
 import com.dmitrijkuzmin.sampleps.di.splash.SplashModule;
 
@@ -14,4 +16,5 @@ import dagger.Component;
 public interface AppComponent {
     SplashComponent plus(SplashModule module);
     LoginComponent plus(LoginModule module);
+    MainComponent plus(MainModule module);
 }

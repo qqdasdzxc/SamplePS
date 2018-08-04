@@ -1,5 +1,7 @@
 package com.dmitrijkuzmin.sampleps.ui.onboard;
 
+import android.content.Intent;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
@@ -18,8 +20,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.dmitrijkuzmin.sampleps.R;
+import com.dmitrijkuzmin.sampleps.ui.main.view.MainActivity;
+import com.dmitrijkuzmin.sampleps.utils.Constants;
+
+import static com.dmitrijkuzmin.sampleps.utils.Constants.PAGES_COUNT;
 
 public class OnBoardActivity extends AppCompatActivity {
 
@@ -72,19 +79,17 @@ public class OnBoardActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int i, float v, int i1) {
+            public void onPageScrolled(int i, float v, int i1) { }
 
+            @Override
+            public void onPageSelected(int position) {
+                page = position;
+                updateIndicators(page);
+                mFinishBtn.setVisibility(position == PAGES_COUNT - 1 ? View.VISIBLE : View.INVISIBLE);
             }
 
             @Override
-            public void onPageSelected(int i) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
+            public void onPageScrollStateChanged(int i) { }
         });
 
         mNextBtn.setOnClickListener(view -> {
@@ -92,9 +97,18 @@ public class OnBoardActivity extends AppCompatActivity {
             mViewPager.setCurrentItem(page, true);
         });
 
+        mFinishBtn.setOnClickListener(view -> {
+            startMainActivity();
+            finish();
+        });
     }
 
-    void updateIndicators(int position) {
+    private void startMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    private void updateIndicators(int position) {
         for (int i = 0; i< indicators.length; i++) {
             indicators[i].setBackgroundResource(
                     i == position ? R.drawable.indicator_selected : R.drawable.indicator_unselected
@@ -124,23 +138,21 @@ public class OnBoardActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
     public static class PlaceholderFragment extends Fragment {
 
-        private static final String MESSAGE = "message";
-        private static final String PICTURE_ID = "picture_id";
+        private static final String ARG_SECTION_NUMBER = "message";
 
-        public PlaceholderFragment() {
-        }
+        int[] pictures = new int[]{R.drawable.wt_push_pad, R.drawable.wt_pay_pad, R.drawable.wt_discount_pad,
+                R.drawable.wt_bill, R.drawable.wt_redeemed};
+        int[] messages = new int[]{R.string.onboard_message_1, R.string.onboard_message_2, R.string.onboard_message_3,
+                R.string.onboard_message_4, R.string.onboard_message_5, R.string.onboard_message_6};
 
-        public static PlaceholderFragment newInstance(String message, int picture_id) {
+        public PlaceholderFragment() { }
+
+        public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
-            args.putString(MESSAGE, message);
-            args.putInt(PICTURE_ID, picture_id);
-            //args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
             return fragment;
         }
@@ -149,9 +161,24 @@ public class OnBoardActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_on_board, container, false);
-//            TextView textView = rootView.findViewById(R.id.section_label);
-//            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            TextView textView = rootView.findViewById(R.id.intro_title_tv);
+            ImageView imageView = rootView.findViewById(R.id.intro_image);
+
+            int position = getArguments().getInt(ARG_SECTION_NUMBER);
+
+            try {
+                setResources(textView, imageView, position);
+            } catch (IndexOutOfBoundsException e) {
+                imageView.setVisibility(View.GONE);
+            }
+
             return rootView;
+        }
+
+        private void setResources(TextView textView, ImageView imageView, Integer pos)
+                throws IndexOutOfBoundsException {
+            textView.setText(getResources().getString(messages[pos]));
+            imageView.setBackgroundResource(pictures[pos]);
         }
     }
 
@@ -169,12 +196,12 @@ public class OnBoardActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            return PlaceholderFragment.newInstance(position);
         }
 
         @Override
         public int getCount() {
-            return 6;
+            return PAGES_COUNT;
         }
     }
 }

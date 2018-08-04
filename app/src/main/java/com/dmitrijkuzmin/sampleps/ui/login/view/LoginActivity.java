@@ -1,5 +1,6 @@
 package com.dmitrijkuzmin.sampleps.ui.login.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import com.dmitrijkuzmin.sampleps.App;
 import com.dmitrijkuzmin.sampleps.R;
 import com.dmitrijkuzmin.sampleps.di.login.LoginModule;
 import com.dmitrijkuzmin.sampleps.ui.login.presenter.LoginPresenter;
+import com.dmitrijkuzmin.sampleps.ui.onboard.OnBoardActivity;
 import com.dmitrijkuzmin.sampleps.utils.DialogFactory;
 
 import javax.inject.Inject;
@@ -57,10 +59,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView,
 
     @Override
     public void moveToOnBoardScreen() {
-//        Intent intent = new Intent(this, OnBoardActivity.class);
-//        startActivity(intent);
-//        finish();
-        Toast.makeText(this, "successful login", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, OnBoardActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override

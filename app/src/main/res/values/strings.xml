@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">SamplePS</string>
     <string name="loading">Загрузка</string>
+    <string name="registration_number">Регистрационный номер</string>
+    <string name="certificate_number">Номер свидетельства\nо регистрации</string>
+    <string name="driver_license">Номер ВУ</string>
     <string name="pre_login_screen_text">Проверьте штрафы в официальных источниках</string>
     <string name="btn_pre_login_text">Ввести данные</string>
     <string name="btn_pre_main_text">Продолжить</string>
@@ -20,4 +23,13 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="into_finish_button_text">Узнать штрафы</string>
+
+    <string name="onboard_message_1">Получайте push-уведомления о новых штрафах</string>
+    <string name="onboard_message_2">Оплачивайте штрафы\nчерез приложение</string>
+    <string name="onboard_message_3">Скидка 50%</string>
+    <string name="onboard_message_4">Получайте квитанцию,\nкак в банке</string>
+    <string name="onboard_message_5">Гарантия погашения в\nгосударственной базе\nданных</string>
+    <string name="onboard_message_6">Соблюдайте правила\nдорожного движения</string>
+    <string name="main_activity_info">Раздел в разработке :)</string>
+    <string name="user_info_title">Информация о пользователе:</string>
 </resources>
