@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.dmitrijkuzmin.sampleps.App;
 import com.dmitrijkuzmin.sampleps.R;
+import com.dmitrijkuzmin.sampleps.di.splash.SplashComponent;
 import com.dmitrijkuzmin.sampleps.di.splash.SplashModule;
 import com.dmitrijkuzmin.sampleps.ui.login.view.LoginActivity;
 import com.dmitrijkuzmin.sampleps.ui.main.view.MainActivity;
@@ -20,13 +21,16 @@ public class SplashActivity extends AppCompatActivity implements SplashView,
     @Inject
     SplashPresenter presenter;
 
+    private SplashComponent component;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        ((App) getApplicationContext()).getAppComponent()
-                .plus(new SplashModule(this)).inject(this);
+        component = ((App) getApplicationContext()).getAppComponent()
+                .plus(new SplashModule(this));
+        component.inject(this);
 
         presenter.verifyUser();
     }
@@ -36,6 +40,13 @@ public class SplashActivity extends AppCompatActivity implements SplashView,
         super.onDestroy();
 
         presenter.cancelVerifying();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+
+        component = null;
     }
 
     @Override

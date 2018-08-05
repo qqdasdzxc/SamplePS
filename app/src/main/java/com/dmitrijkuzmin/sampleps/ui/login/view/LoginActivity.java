@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.dmitrijkuzmin.sampleps.App;
 import com.dmitrijkuzmin.sampleps.R;
+import com.dmitrijkuzmin.sampleps.di.login.LoginComponent;
 import com.dmitrijkuzmin.sampleps.di.login.LoginModule;
 import com.dmitrijkuzmin.sampleps.ui.login.presenter.LoginPresenter;
 import com.dmitrijkuzmin.sampleps.ui.onboard.OnBoardActivity;
@@ -22,15 +23,25 @@ public class LoginActivity extends AppCompatActivity implements LoginView,
     @Inject
     LoginPresenter presenter;
 
+    private LoginComponent component;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        ((App) getApplicationContext()).getAppComponent()
-                .plus(new LoginModule(this)).inject(this);
+        component = ((App) getApplicationContext()).getAppComponent()
+                .plus(new LoginModule(this));
+        component.inject(this);
 
         presenter.startLogin();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+
+        component = null;
     }
 
     @Override

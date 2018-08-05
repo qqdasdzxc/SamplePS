@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.dmitrijkuzmin.sampleps.App;
 import com.dmitrijkuzmin.sampleps.R;
+import com.dmitrijkuzmin.sampleps.di.main.MainComponent;
 import com.dmitrijkuzmin.sampleps.di.main.MainModule;
 import com.dmitrijkuzmin.sampleps.ui.main.presenter.MainPresenter;
 
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Inject
     MainPresenter presenter;
+
+    private MainComponent component;
 
     TextView registrationNumbertv, certificateNumbertv, driverLicensetv;
 
@@ -27,10 +30,18 @@ public class MainActivity extends AppCompatActivity implements MainView {
         certificateNumbertv = findViewById(R.id.certificate_number_tv);
         driverLicensetv = findViewById(R.id.driver_license_tv);
 
-        ((App) getApplicationContext()).getAppComponent()
-                .plus(new MainModule(this)).inject(this);
+        component = ((App) getApplicationContext()).getAppComponent()
+                .plus(new MainModule(this));
+        component.inject(this);
 
         presenter.loadUserData();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+
+        component = null;
     }
 
     @Override
