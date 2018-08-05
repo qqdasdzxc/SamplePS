@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.dmitrijkuzmin.sampleps.App;
 import com.dmitrijkuzmin.sampleps.R;
@@ -44,6 +43,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView,
     @Override
     public void moveToSecondLoginStep() {
         getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.animator.slide_in_from_top, R.animator.slide_out_to_left,
+                        R.animator.slide_in_from_left, R.animator.slide_out_to_top)
                 .replace(R.id.container, new SecondLoginStepFragment())
                 .addToBackStack("second_step")
                 .commit();
@@ -52,6 +53,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView,
     @Override
     public void moveToThirdLoginStep() {
         getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.animator.slide_in_from_top, R.animator.slide_out_to_left,
+                        R.animator.slide_in_from_left, R.animator.slide_out_to_top)
                 .replace(R.id.container, new ThirdLoginStepFragment())
                 .addToBackStack("third_step")
                 .commit();
